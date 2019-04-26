@@ -9,19 +9,17 @@ import edu.isu.cs.cs3308.structures.impl.SinglyLinkedList;
  *
  * @author Isaac Griffith
  */
-public class Scoreboard
-{
+public class Scoreboard {
 
-    private int capacity; // maximum capacity constraint
-    private List<GameEntry> board; // Underlying list data structure
+    private int capacity;
+    private List<GameEntry> board;
 
     /**
      * Constructs a new scoreboard with the provided maximum capacity.
      *
      * @param capacity Maximum number of entries supported by this scoreboard.
      */
-    public Scoreboard(int capacity)
-    {
+    public Scoreboard(int capacity) {
         board = new SinglyLinkedList<>();
         this.capacity = capacity;
     }
@@ -34,7 +32,15 @@ public class Scoreboard
      */
     public void add(GameEntry entry)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        // Implement add process
+        // @author Dylan Lasher
+        if (capacity != size())
+        {
+            if (entry != null)
+            {
+                board.addFirst(entry);
+            }
+        }
     }
 
     /**
@@ -47,22 +53,30 @@ public class Scoreboard
      */
     public GameEntry remove(int i) throws IndexOutOfBoundsException
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        // Implement remove process
+        // @author Dylan Lasher
+        if (i >= size())
+        {
+            throw new IndexOutOfBoundsException("Index is greater than List bounds");
+        }
+        else if (i < 0)
+        {
+            throw new IndexOutOfBoundsException("Index is less than List bounds");
+        }
+        return board.remove(i);
     }
 
     /**
      * Prints the contents of the scoreboard to the console.
      */
-    public void printScores()
-    {
+    public void printScores() {
         board.printList();
     }
 
     /**
      * @return current number of entries held by the scoreboard.
      */
-    public int size()
-    {
+    public int size() {
         return board.size();
     }
 }

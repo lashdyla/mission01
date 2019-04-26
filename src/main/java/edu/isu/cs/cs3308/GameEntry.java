@@ -15,8 +15,7 @@ import java.util.logging.Logger;
  *
  * @author Isaac Griffith
  */
-public class GameEntry
-{
+public class GameEntry {
 
     private final String name; // name of the player
     private final int score; // player's score
